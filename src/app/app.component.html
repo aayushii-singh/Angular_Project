@@ -1,11 +1,15 @@
 <!-- ✅ One-way data binding (Interpolation) -->
 <h1>{{ title }}</h1>
 
-<!-- ✅ Two-way data binding: Input updates userName dynamically -->
-<input type="text" [(ngModel)]="userName" placeholder="Enter your name">
+<!-- ✅ Two-way data binding with validation on input change -->
+<input type="text" [(ngModel)]="userName" (input)="validateUserName()" placeholder="Enter your name">
 
-<!-- ✅ Dynamic message updates as user types -->
-<h2>Hello {{ userName }} from BridgeLabz!</h2>
+<!-- ✅ Display error message when validation fails -->
+<p *ngIf="errorMessage" style="color: red; font-weight: bold;">{{ errorMessage }}</p>
 
-<!-- ✅ Property & Event Binding: Click logo to open site -->
+<!-- ✅ Show greeting ONLY if the input is valid -->
+<h2 *ngIf="isUserNameValid()">Hello {{ userName }} from BridgeLabz!</h2>
+
+<br>
+<!-- ✅ Image appears on the next line -->
 <img [src]="bridgeLabzLogo" alt="BridgeLabz Logo" width="200" (click)="openBridgeLabzSite()">
