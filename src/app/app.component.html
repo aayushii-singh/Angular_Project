@@ -1,7 +1,11 @@
+<!-- ✅ One-way data binding (Interpolation) -->
 <h1>{{ title }}</h1>
-<img 
-  [src]="bridgeLabzLogo" 
-  alt="BridgeLabz Logo" 
-  width="300" 
-  (click)="openBridgeLabzSite()"
-  style="cursor: pointer;">
+
+<!-- ✅ Two-way data binding: Input updates userName dynamically -->
+<input type="text" [(ngModel)]="userName" placeholder="Enter your name">
+
+<!-- ✅ Dynamic message updates as user types -->
+<h2>Hello {{ userName }} from BridgeLabz!</h2>
+
+<!-- ✅ Property & Event Binding: Click logo to open site -->
+<img [src]="bridgeLabzLogo" alt="BridgeLabz Logo" width="200" (click)="openBridgeLabzSite()">
